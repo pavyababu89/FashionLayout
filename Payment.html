@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  gap: 0;  
+  margin-left: 200px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+}
+.nav a.nav-active {
+  background-color: #ff4d4d;
+  color: #000;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.material-icons {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #2c2c2c;
+  color: #fff;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+/* PAYMENT SECTION */
+.payment-wrapper {
+  width: 100%;
+  padding: 40px 0;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: #999;
+}
+
+.step::before {
+  content: '1';
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.step:nth-child(3)::before {
+  content: '2';
+}
+
+.step:nth-child(5)::before {
+  content: '3';
+}
+
+.step.active {
+  color: black;
+  font-weight: 500;
+}
+
+.step.active::before {
+  background-color: #ff5a5a;
+}
+
+.line {
+  width: 60px;
+  height: 2px;
+  background: #ddd;
+  margin: 0 10px;
+}
+
+.step.active + .line {
+  background: #ff5a5a;
+}
+
+/* Card container */
+.payment-card {
+  width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.payment-card h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+/* Content */
+.payment-content {
+  display: flex;
+  gap: 120px;
+}
+
+/* Left */
+.left {
+  width: 40%;
+}
+
+.credit-card {
+  background: linear-gradient(135deg, #1e1eff, #5a5aff);
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  width: 40px;
+  height: 30px;
+  background: gold;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.card-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.card-name small {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.expiry {
+  font-size: 12px;
+}
+
+
+.card-number {
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.amount {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.amount span {
+  color: red;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* Right */
+.right {
+  width: 60%;
+}
+
+.right label {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.right input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.row div {
+  width: 50%;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cancel {
+  background: transparent;
+  border: 1px solid #4a74ff;
+  color: #4a74ff;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pay {
+  background: #ff6b5c;
+  border: none;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cancel,
+.pay {
+  padding: 12px 32px;     /* bigger */
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+/* Back */
+.back {
+  display: block;
+  margin: 30px auto 0;
+  background: #ff6b5c;
+  color: #fff;
+  border: none;
+  padding: 12px 36px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+/* FOOTER PART */
+.footer {
+  background-color: #2e2e2e;
+  color: #ccc;
+  padding: 60px 80px;
+  font-family: "Arial", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* Brand section */
+.footer .brand h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer .brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+/* Headings */
+.footer h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Links */
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #666;
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+    <header class="header">
+  <div class="logo">Fashion world</div>
+
+  <nav class="nav">
+    <a href="Homepage.html">Home</a>
+    <a href="Categories.html">Categories</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Contact.html">contact</a>
+    <span class="material-icons">shopping_cart</span>
+    <span class="material-icons">account_circle</span>
+    <button class="login-btn">Login</button>
+  </nav>
+</header>
+
+<!-- PAYMENT SECTION -->
+ <section class="payment-wrapper">
+
+  <!-- Steps -->
+<div class="steps">
+  <div class="step active">Shipping</div>
+  <div class="line"></div>
+  <div class="step active">Payment</div>
+  <div class="line"></div>
+  <div class="step">Confirm</div>
+</div>
+
+  <!-- Card -->
+  <div class="payment-card">
+    <h2>Payment details</h2>
+
+    <div class="payment-content">
+
+      <!-- Left -->
+      <div class="left">
+        <div class="credit-card">
+          <div class="chip"></div>
+          <p class="card-number">9047 9485 2593 6046</p>
+          <div class="card-footer">
+            <div class="card-name">
+                <small>Name</small>
+                <span>GAYATHRIS</span>
+            </div>
+            <span class="expiry">12/24</span>
+            </div>
+        </div>
+
+        <p class="amount">
+          Payment amount <span>Rs.460</span>
+        </p>
+      </div>
+
+      <!-- Right -->
+      <div class="right">
+        <label>Card holder name</label>
+        <input type="text" id="cardName"/>
+
+        <label>Card Number</label>
+        <input type="text" id="cardNumber" />
+
+        <div class="row">
+          <div>
+            <label>Expiry date</label>
+            <input type="text" id="expiry"/>
+          </div>
+          <div>
+            <label>CVV</label>
+            <input type="password" id="cvv" />
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button class="cancel" id="cancelBtn">Cancel</button>
+          <button class="pay" id="payNowBtn">
+            Pay Now
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="back">← Back</button>
+
+</section>
+
+<!-- FOOTER SECTION -->
+ <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h2>LUXE.</h2>
+      <p>
+        Premium fashion for the modern connoisseur.
+        Elevate your style with our curated collections.
+      </p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Shop -->
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div class="footer-col">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Find a Store</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Corporate Responsibility</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+<script>
+  document.getElementById("cardName").addEventListener("focus", function () {
+    this.value = "GAYATHIRI S";
+  });
+
+  document.getElementById("cardNumber").addEventListener("focus", function () {
+    this.value = "9047 9485 2593 6046";
+  });
+
+  document.getElementById("expiry").addEventListener("focus", function () {
+    this.value = "12/30";
+  });
+
+  document.getElementById("cvv").addEventListener("focus", function () {
+    this.value = "23456";
+  });
+  document.getElementById("cancelBtn").addEventListener("click", function () {
+    document.getElementById("cardName").value = "";
+    document.getElementById("cardNumber").value = "";
+    document.getElementById("expiry").value = "";
+    document.getElementById("cvv").value = "";
+  });
+  document.getElementById("payNowBtn").addEventListener("click", function () {
+    const name = document.getElementById("cardName").value.trim();
+    const number = document.getElementById("cardNumber").value.trim();
+    const expiry = document.getElementById("expiry").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    if (name === "" || number === "" || expiry === "" || cvv === "") {
+      alert("Please fill all payment details");
+      return; // STOP here — no redirect
+    }
+
+    // All fields filled → redirect
+    window.location.href = "PaymentConfirm.html";
+  });
+</script>
+
+</body>
+</html>
