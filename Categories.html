@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  gap: 0;  
+  margin-left: 200px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+}
+.nav a.nav-active {
+  background-color: #ff4d4d;
+  color: #000;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.material-icons {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #2c2c2c;
+  color: #fff;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* CATEGORIES */
+.products-section {
+  padding: 40px 80px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 400;
+  
+}
+
+.filter-tabs span {
+  cursor: pointer;
+  color: #333;
+  
+}
+.filter-tabs a{
+  text-decoration: none;
+}
+
+.filter-tabs .active {
+  color: #ff4d4d;
+  font-weight: 500;
+}
+
+/* Grid */
+ .products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 240px); /* smaller cards */
+  gap: 70px;
+  justify-content: center; /* centers all cards */
+}
+
+/* Card */
+.product-card {
+  position: relative;
+  width:240px;
+}
+
+/* Image box */
+.img-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Buy Now button */
+.buy-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width:200px;
+}
+
+/* Wishlist heart */
+.wishlist {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #ff3b3b;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover effects */
+.product-card:hover img {
+  opacity: 0.35;
+}
+
+.product-card:hover .buy-btn {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.product-card:hover .wishlist {
+  opacity: 1;
+}
+
+/* Bottom content */
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.card-text h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.card-text p {
+  font-size: 16px;
+  color: #777;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* FOOTER PART */
+.footer {
+  background-color: #2e2e2e;
+  color: #ccc;
+  padding: 60px 80px;
+  font-family: "Arial", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* Brand section */
+.footer .brand h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer .brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+/* Headings */
+.footer h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Links */
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #666;
+  transform: translateY(-2px);
+}
+/* PROFILE MODAL OVERLAY */
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.profile-modal.active {
+  display: flex;
+}
+
+/* MODAL BOX */
+.profile-content {
+  background: #fff;
+  width: 550px;
+  padding: 40px 30px 50px;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* CLOSE */
+.close-profile {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* TEXT */
+.profile-content h1 {
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.profile-content h2 {
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* PHONE INPUT */
+.phone-box {
+  display: flex;
+  align-items: center;
+  background: #f3f3f3;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.phone-box i {
+  font-size: 18px;
+}
+
+.phone-box .code {
+  font-size: 16px;
+}
+
+.phone-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+}
+
+.email-link {
+  display: block;
+  text-align: right;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.terms {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.continue-btn {
+  background: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+    <header class="header">
+  <div class="logo">Fashion world</div>
+
+  <nav class="nav">
+    <a href="Homepage.html">Home</a>
+    <a href="Categories.html" class="nav-active">Categories</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Contact.html">contact</a>
+    <a href="ShoppingCart.html">
+      <span class="material-icons">shopping_cart</span>
+    </a>
+    <span class="material-icons" id="profileIcon">account_circle</span>
+    <button class="login-btn">Login</button>
+  </nav>
+</header>
+
+<!-- Categories Section -->
+ <section class="products-section">
+
+  <!-- Filter Tabs -->
+  <div class="filter-tabs">
+    <span class="active">All/</span>
+    <a href="CategoriesModern.html">
+      <span>Modern/</span>
+    </a>
+    <a href="CategoriesTraditional.html">
+      <span>Traditional/</span>
+    </a>
+
+    <a href="CategoriesCasual.html">
+      <span>Casual/</span>
+    </a>
+
+    <a href="CategoriesFormal.html">
+      <span>Formals</span>
+    </a>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products-grid">
+
+    <!-- Card -->
+    <div class="product-card">
+       <div class="img-box">
+            <img src="Category1.jpg" alt="T-shirt & Jean">
+            <a href="BuyNowAll.html">
+              <button class="buy-btn">Buy Now</button>
+            </a>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>T-Shirt & Jean</h4>
+            <p>Casual wear</p>
+            </div>
+            <span class="price">$800</span>
+        </div>
+        </div>
+
+    <div class="product-card">
+        <div class="img-box">
+            <img src="Category2.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>Saree</h4>
+            <p>Traditional Wear</p>
+            </div>
+            <span class="price">$2000</span>
+        </div>
+        </div>
+
+        <div class="product-card">
+    <div class="img-box">
+        <img src="Category3.png" alt="T-shirt & Jean">
+        <button class="buy-btn">Buy Now</button>
+        <i class="fa-solid fa-heart wishlist"></i>
+    </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>T-Shirt & Jean</h4>
+            <p>Casual wear</p>
+            </div>
+            <span class="price">$800</span>
+        </div>
+        </div>
+
+            <div class="product-card">
+        <div class="img-box">
+            <img src="Category4.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>Kurti</h4>
+            <p>Festival wear</p>
+            </div>
+            <span class="price">$500</span>
+        </div>
+        </div>
+
+            <div class="product-card">
+        <div class="img-box">
+            <img src="Category4.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>Kurti</h4>
+            <p>Festival wear</p>
+            </div>
+            <span class="price">$500</span>
+        </div>
+        </div>
+
+            <div class="product-card">
+        <div class="img-box">
+            <img src="Category2.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>Saree</h4>
+            <p>Traditional wear</p>
+            </div>
+            <span class="price">$2000</span>
+        </div>
+        </div>
+
+            <div class="product-card">
+        <div class="img-box">
+            <img src="Category5.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>Shoot</h4>
+            <p>Formal wear</p>
+            </div>
+            <span class="price">$1000</span>
+        </div>
+        </div>
+
+            <div class="product-card">
+        <div class="img-box">
+            <img src="Category1.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>T-Shirt & Jean</h4>
+            <p>Casual wear</p>
+            </div>
+            <span class="price">$800</span>
+        </div>
+        </div>
+
+            <div class="product-card">
+       <div class="img-box">
+            <img src="Category6.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>T-Shirt & Jean</h4>
+            <p>Casual wear</p>
+            </div>
+            <span class="price">$800</span>
+        </div>
+        </div>
+
+        <div class="product-card">
+       <div class="img-box">
+            <img src="Category1.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>T-Shirt & Jean</h4>
+            <p>Casual wear</p>
+            </div>
+            <span class="price">₹800</span>
+        </div>
+        </div>
+
+        <div class="product-card">
+       <div class="img-box">
+            <img src="Category1.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>T-Shirt & Jean</h4>
+            <p>Casual wear</p>
+            </div>
+            <span class="price">$800</span>
+        </div>
+        </div>
+
+        <div class="product-card">
+       <div class="img-box">
+            <img src="Category6.jpg" alt="T-shirt & Jean">
+            <button class="buy-btn">Buy Now</button>
+            <i class="fa-solid fa-heart wishlist"></i>
+        </div>
+        <div class="card-bottom">
+            <div class="card-text">
+            <h4>T-Shirt & Jean</h4>
+            <p>Casual wear</p>
+            </div>
+            <span class="price">₹800</span>
+        </div>
+        </div>
+
+        </div>
+
+  <!-- Back Button -->
+  <div class="back-btn">
+    <button>← Back</button>
+  </div>
+
+</section>
+
+<!-- FOOTER SECTION -->
+ <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h2>LUXE.</h2>
+      <p>
+        Premium fashion for the modern connoisseur.
+        Elevate your style with our curated collections.
+      </p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Shop -->
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div class="footer-col">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Find a Store</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Corporate Responsibility</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+<!-- PROFILE MODAL -->
+<div class="profile-modal" id="profileModal">
+  <div class="profile-content">
+    <button class="close-profile" onclick="closeProfile()">×</button>
+
+    <h1>Welcome to</h1>
+    <h2>Luxury Fashion World</h2>
+
+    <p class="subtitle">Please Enter Your Mobile Number</p>
+
+    <div class="phone-box">
+      <i class="fa-solid fa-phone"></i>
+      <span class="code">+91</span>
+      <input type="text" placeholder="Mobile number">
+    </div>
+
+    <a href="#" class="email-link">Use E-Mail</a>
+
+    <p class="terms">
+      This site is protected by reCAPTCHA and the Google
+      <u>Privacy Policy</u> and <u>Terms of Service</u> apply.
+      On Clicking Continue, I agree to
+      <u>Terms of Service</u> & <u>Privacy Policy</u>
+    </p>
+
+    <button class="continue-btn">Continue</button>
+  </div>
+</div>
+
+<script>
+  const profileIcon = document.getElementById("profileIcon");
+  const profileModal = document.getElementById("profileModal");
+
+  profileIcon.addEventListener("click", () => {
+    profileModal.classList.add("active");
+  });
+
+  function closeProfile() {
+    profileModal.classList.remove("active");
+  }
+
+  profileModal.addEventListener("click", (e) => {
+    if (e.target === profileModal) {
+      closeProfile();
+    }
+  });
+</script>
+</body>
+</html>

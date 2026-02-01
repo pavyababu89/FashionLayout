@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check out Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  gap: 0;  
+  margin-left: 200px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+}
+.nav a.nav-active {
+  background-color: #ff4d4d;
+  color: #000;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.material-icons {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #2c2c2c;
+  color: #fff;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.checkout-section {
+  padding: 50px 20px;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.checkout-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+ .step {
+  font-size: 18px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step.active {
+  color: black;
+}
+
+.step::before {
+  content: '1';
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.step:nth-child(3)::before {
+  content: '2';
+}
+
+.step:nth-child(5)::before {
+  content: '3';
+}
+
+.step.active::before {
+  background-color: #ff5a5a;
+}
+
+.line {
+  width: 60px;
+  height: 2px;
+  background: #ddd;
+}
+
+.step.active + .line {
+  background: #ff5a5a;
+}
+
+.checkout-container {
+  display: flex;
+  gap: 60px;
+}
+
+/* LEFT */
+.checkout-left {
+  flex: 2;
+}
+
+.checkout-left h3 {
+  margin-bottom: 20px;
+}
+.checkout-left h4 {
+  font-size: 20px;   /* increase size */
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: 12px;
+}
+
+
+.checkout-left input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.promo {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.promo input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.promo button {
+  background: #ff5a5a;
+  border: none;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+
+.continue-btn {
+  margin-top: 30px;
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 22px;
+}
+.continue-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-left: 500px;
+  white-space: nowrap;
+}
+
+
+/* RIGHT */
+.checkout-right {
+  flex: 1;
+}
+.checkout-right h3{
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 22px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-item img {
+  width: 50px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.summary-item strong {
+  margin-left: 70px; /* adjust as needed */
+}
+.summary-item p {
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.summary-item span {
+  font-size: 12px;
+  color: #777;
+}
+
+.summary-total {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  font-size: 20px;
+}
+
+.summary-total p,
+.summary-total h4 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;      /* IMPORTANT */
+  cursor: pointer;
+}
+
+/* RESET radio button weird spacing */
+.payment-option input[type="radio"] {
+  margin: 0;
+  padding: 0;
+  position: static;
+  accent-color: #ff5a5a;
+}
+
+/* icons */
+.payment-option i {
+  color: #ff5a5a;
+  font-size: 18px;
+  width: 22px;             /* FIX alignment */
+  text-align: center;
+}
+
+/* text */
+.payment-option span {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111827;
+}
+
+
+/* FOOTER PART */
+.footer {
+  background-color: #2e2e2e;
+  color: #ccc;
+  padding: 60px 80px;
+  font-family: "Arial", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* Brand section */
+.footer .brand h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer .brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+/* Headings */
+.footer h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Links */
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #666;
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+    <header class="header">
+  <div class="logo">Fashion world</div>
+
+  <nav class="nav">
+    <a href="Homepage.html">Home</a>
+    <a href="Categories.html">Categories</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Contact.html">contact</a>
+    <span class="material-icons">shopping_cart</span>
+    <span class="material-icons">account_circle</span>
+    <button class="login-btn">Login</button>
+  </nav>
+</header>
+
+<!-- CHECKOUT SECTION -->
+ <section class="checkout-section">
+  <h2 class="checkout-title">Checkout</h2>
+
+  <!-- Steps -->
+  <div class="checkout-steps">
+  <div class="step active">Shipping</div>
+  <div class="line"></div>
+  <div class="step">Payment</div>
+  <div class="line"></div>
+  <div class="step">Confirm</div>
+</div>
+
+  <div class="checkout-container">
+
+    <!-- LEFT -->
+    <div class="checkout-left">
+      <h3>Delivery Information</h3>
+
+      <div class="row">
+        <div class="form-group">
+                <label>First Name</label>
+                <input type="text">
+        </div>
+
+        <div class="form-group">
+                <label>Last Name</label>
+                <input type="text">
+        </div>
+      </div>
+
+      <div class="form-group">
+            <label>Email Address</label>
+            <input type="email">
+            </div>
+      <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel">
+        </div>
+      <div class="form-group">
+            <label>Street Address</label>
+            <input type="text">
+        </div>
+    <div class="row">
+        <div class="form-group">
+            <label>City</label>
+            <input type="text">
+            </div>
+        <div class="form-group">
+            <label>State / Province</label>
+            <input type="text">
+            </div>
+       <div class="form-group">
+            <label>ZIP / Postal Code</label>
+            <input type="text">
+            </div>
+      </div>
+ 
+      <div class="form-group">
+            <label>Country</label>
+            <input type="text">
+        </div>
+
+      <h4>Payment Options</h4>
+
+            <div class="payment-options">
+            <label class="payment-option">
+                <input type="radio" name="payment" checked>
+                <i class="fa-regular fa-credit-card"></i>
+                <span>Card</span>
+            </label>
+
+            <label class="payment-option">
+                <input type="radio" name="payment">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <span>UPI</span>
+            </label>
+
+            <label class="payment-option">
+                <input type="radio" name="payment">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Netbanking</span>
+            </label>
+            </div>
+
+        <div class="promo">
+            <input type="text" placeholder="Enter promo code">
+            <button>Apply</button>
+            </div>
+
+      <div class="continue-wrapper">
+  <a href="Payment.html">
+  <button class="continue-btn">Continue to Payment</button>
+</a>
+</div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="checkout-right">
+      <h3>Order Summary</h3>
+
+      <div class="summary-item">
+        <img src="Category1.jpg">
+        <div>
+          <p>Product Name 1</p>
+          <span>Quantity: 1</span>
+        </div>
+        <strong>$29.99</strong>
+      </div>
+
+      <div class="summary-item">
+        <img src="Category2.jpg">
+        <div>
+          <p>Product Name 2</p>
+          <span>Quantity: 2</span>
+        </div>
+        <strong>$49.98</strong>
+      </div>
+
+      <div class="summary-total">
+        <p>Subtotal <span>$79.97</span></p>
+        <p>Shipping <span>$5.00</span></p>
+        <h4>Total <span>$84.97</span></h4>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOOTER SECTION -->
+ <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h2>LUXE.</h2>
+      <p>
+        Premium fashion for the modern connoisseur.
+        Elevate your style with our curated collections.
+      </p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Shop -->
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div class="footer-col">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Find a Store</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Corporate Responsibility</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+<script>
+// Data to autofill
+const formData = {
+  firstName: "Gayathri",
+  lastName: "S",
+  email: "gayu123@gmail.com",
+  phone: "5698745203",
+  street: "Middle Street",
+  city: "Chennai",
+  state: "TamilNadu",
+  zip: "600019",
+  country: "India",
+  promo: "333666999777"
+};
+
+// Get all input fields including promo
+const inputs = document.querySelectorAll('.checkout-left input[type="text"], .checkout-left input[type="email"], .checkout-left input[type="tel"]');
+
+// Add click event to each input
+inputs.forEach(input => {
+  input.addEventListener('click', function() {
+    // Check if input is already filled
+    if (this.value) return;
+    
+    // Check if it's the promo code input
+    if (this.placeholder === 'Enter promo code') {
+      this.value = formData.promo;
+      return;
+    }
+    
+    // Get the label text to determine which field
+    const label = this.parentElement.querySelector('label');
+    if (!label) return;
+    
+    const labelText = label.textContent.trim();
+    
+    // Fill based on label
+    if (labelText === 'First Name') this.value = formData.firstName;
+    else if (labelText === 'Last Name') this.value = formData.lastName;
+    else if (labelText === 'Email Address') this.value = formData.email;
+    else if (labelText === 'Phone Number') this.value = formData.phone;
+    else if (labelText === 'Street Address') this.value = formData.street;
+    else if (labelText === 'City') this.value = formData.city;
+    else if (labelText === 'State / Province') this.value = formData.state;
+    else if (labelText === 'ZIP / Postal Code') this.value = formData.zip;
+    else if (labelText === 'Country') this.value = formData.country;
+  });
+});
+
+// Apply button functionality
+const applyButton = document.querySelector('.promo button');
+applyButton.addEventListener('click', function(e) {
+  e.preventDefault();
+  this.style.backgroundColor = '#22c55e'; // green color
+  this.textContent = 'Applied';
+});
+</script>
+</body>
+</html>
