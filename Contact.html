@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  gap: 0;  
+  margin-left: 200px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+}
+.nav a.nav-active {
+  background-color: #ff4d4d;
+  color: #000;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.material-icons {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #2c2c2c;
+  color: #fff;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+/* CONTACT US */
+.contact-section {
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.contact-box {
+  width: 670px;
+  margin: auto;
+  padding: 40px 50px;
+  border: 1px solid #bdbdbd;
+  border-radius: 30px;
+  text-align: left;
+}
+
+.contact-box h3 {
+  font-size: 26px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.contact-box h3 span {
+  color: #2563eb;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #555;
+  margin-left: 20px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #888;
+  padding: 6px 2px;
+  outline: none;
+  font-size: 14px;
+}
+
+.checkbox {
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.checkbox input {
+  margin-right: 8px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: #2563eb;
+  color: #000;
+  border: none;
+  padding: 12px 0;
+  font-size: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* FOOTER PART */
+.footer {
+  background-color: #2e2e2e;
+  color: #ccc;
+  padding: 60px 80px;
+  font-family: "Arial", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* Brand section */
+.footer .brand h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer .brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+/* Headings */
+.footer h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Links */
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #666;
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+    <header class="header">
+  <div class="logo">Fashion world</div>
+
+  <nav class="nav">
+    <a href="Homepage.html">Home</a>
+    <a href="Categories.html">Categories</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Contact.html">contact</a>
+    <span class="material-icons">shopping_cart</span>
+    <span class="material-icons">account_circle</span>
+    <button class="login-btn">Login</button>
+  </nav>
+</header>
+
+<!-- CONTACT US -->
+ <section class="contact-section">
+  <h2>Contact Us</h2>
+
+  <div class="contact-box">
+    <h3>Contact <span>Us</span></h3>
+    <p class="subtitle">Let’s get in touch!</p>
+
+    <form>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email">
+      </div>
+
+      <div class="form-group">
+        <label>Contact</label>
+        <input type="text">
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" id="news">
+        <label for="news">I would like to revive newsletter</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- FOOTER SECTION -->
+ <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h2>LUXE.</h2>
+      <p>
+        Premium fashion for the modern connoisseur.
+        Elevate your style with our curated collections.
+      </p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Shop -->
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div class="footer-col">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Find a Store</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Corporate Responsibility</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>
