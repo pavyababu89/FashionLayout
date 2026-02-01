@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now FWomen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  gap: 0;  
+  margin-left: 200px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+}
+.nav a.nav-active {
+  background-color: #ff4d4d;
+  color: #000;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.material-icons {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #2c2c2c;
+  color: #fff;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+/* BUY NOW SECTION */
+.product-details-section {
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 120px;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  column-gap: 400px; /* increase this to push right section */
+  align-items: flex-start;
+}
+
+
+/* Image */
+.product-image img {
+  width: 250px;
+  height: 500px;
+  border-radius: 8px;
+  margin-left: 200px;
+}
+
+/* Info */
+.product-info h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #555;
+  margin: 6px 0;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 12px 0 20px;
+  margin-bottom: 60px;
+}
+
+/* Sizes */
+.size-section p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.sizes {
+  display: flex;
+  gap: 12px;
+  border-radius: 2px solid black;
+}
+
+.sizes button {
+  padding: 12px 22px;
+  border: 1px solid #aaa;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  
+}
+
+/* Buttons */
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 150px;
+  
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid #aaa;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.buy-btn {
+  padding: 10px 30px;
+  border: none;
+  background: #ff6b6b;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Rating */
+.rating {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 200px;
+}
+
+.star {
+  color: gold;
+  font-size: 18px;
+}
+
+/* Details */
+.details {
+  margin-top: 30px;
+}
+
+.details h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-left: 200px;
+}
+
+.details p {
+  font-size: 16px;
+  max-width: 500px;
+  color: #444;
+  margin-left: 230px;
+  white-space: nowrap;
+}
+
+/* Reviews */
+.reviews {
+  margin-top: 30px;
+}
+
+.reviews h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-left: 200px;
+}
+
+.review-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.review-name {
+  font-size: 16px;
+  font-weight: 400; /* normal */
+  color: #000;
+  
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: #ddd;
+  border-radius: 50%;
+  margin-left: 200px;
+}
+
+.review-item p {
+  font-size: 16px;
+  margin: 4px 0;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: gold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* FOOTER PART */
+.footer {
+  background-color: #2e2e2e;
+  color: #ccc;
+  padding: 60px 80px;
+  font-family: "Arial", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* Brand section */
+.footer .brand h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer .brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+/* Headings */
+.footer h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Links */
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #666;
+  transform: translateY(-2px);
+}
+a{
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+    <header class="header">
+  <div class="logo">Fashion world</div>
+
+  <nav class="nav">
+    <a href="Homepage.html">Home</a>
+    <a href="Categories.html">Categories</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Contact.html">contact</a>
+    <span class="material-icons">shopping_cart</span>
+    <span class="material-icons">account_circle</span>
+    <button class="login-btn">Login</button>
+  </nav>
+</header>
+
+<!-- BUY NOW SECTION -->
+ <section class="product-details-section">
+  <div class="product-container">
+
+    <!-- Left Image -->
+    <div class="product-image">
+      <img src="Category5.jpg" alt="T-Shirt">
+    </div>
+
+    <!-- Right Content -->
+    <div class="product-info">
+      <h2>T- Shirt</h2>
+      <p class="subtitle">Cotton Cloths for Summer</p>
+      <h3 class="price">$250</h3>
+
+      <div class="size-section">
+        <p>Size</p>
+        <div class="sizes">
+          <button>S</button>
+          <button>L</button>
+          <button>M</button>
+          <button>XL</button>
+          <button>XXL</button>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <a href="ShoppingCart.html">
+          <button class="cart-btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Add to Cart
+          </button>
+        </a>
+
+        <a href="Checkout.html">
+          <button class="buy-btn">Buy Now</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rating -->
+  <div class="rating">
+    <span class="rate">4</span>
+    <span class="star">★</span>
+  </div>
+
+  <!-- Product Details -->
+  <div class="details">
+    <h4>Product Details</h4>
+    <p>
+      The Dress was Make by Sof Cotton Cloth . the color was purple.Quantity was one
+    </p>
+  </div>
+
+  <!-- Reviews -->
+  <div class="reviews">
+    <h4>Review</h4>
+
+    <div class="review-item">
+      <div class="avatar"></div>
+      <div>
+        <span class="review-name">Maheshwari</span>
+        <p>This dress was totally awsome Its receive perfectly</p>
+        <span class="stars">★★★★</span>
+      </div>
+    </div>
+
+    <div class="review-item">
+      <div class="avatar"></div>
+      <div>
+        <span class="review-name">Maheshwari</span>
+        <p>This dress was totally awsome Its receive perfectly</p>
+        <span class="stars">★★★★</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER SECTION -->
+ <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h2>LUXE.</h2>
+      <p>
+        Premium fashion for the modern connoisseur.
+        Elevate your style with our curated collections.
+      </p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Shop -->
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div class="footer-col">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Find a Store</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Corporate Responsibility</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;  
+  align-items: center;
+  gap: 0;  
+  margin-left: 200px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+}
+.nav a.nav-active {
+  background-color: #ff4d4d;
+  color: #000;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.material-icons {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #2c2c2c;
+  color: #fff;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* ABOUT SECTION */
+.about-section {
+  padding: 60px 80px;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+/* IMAGE stays centered */
+.about-image {
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.about-image img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+}
+
+/* TEXT is full width */
+.about-text {
+  width: 100%;
+}
+
+.about-text p {
+  font-size: 30px;
+  line-height: 1.7;
+  color: #000;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+/* FOOTER PART */
+.footer {
+  background-color: #2e2e2e;
+  color: #ccc;
+  padding: 60px 80px;
+  font-family: "Arial", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* Brand section */
+.footer .brand h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.footer .brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 280px;
+}
+
+/* Headings */
+.footer h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Links */
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background-color: #444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #666;
+  transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+    <header class="header">
+  <div class="logo">Fashion world</div>
+
+  <nav class="nav">
+    <a href="Homepage.html">Home</a>
+    <a href="Categories.html" >Categories</a>
+    <a href="AboutUs.html" class="nav-active">About Us</a>
+    <a href="Contact.html">contact</a>
+    <span class="material-icons">shopping_cart</span>
+    <span class="material-icons">account_circle</span>
+    <button class="login-btn">Login</button>
+  </nav>
+</header>
+
+<!-- ABOUT US -->
+ <section class="about-section">
+  <h2>About Us</h2>
+
+  <!-- IMAGE (CENTERED) -->
+  <div class="about-image">
+    <img src="About.jfif" alt="About Us">
+  </div>
+
+  <!-- FULL WIDTH TEXT -->
+  <div class="about-text">
+    <p>
+      We are a modern fashion brand focused on creating stylish, comfortable,
+      and high-quality clothing for everyday life. Our goal is to offer designs
+      that are both trendy and timeless, giving customers confidence in every
+      outfit they wear.
+    </p>
+
+    <p>
+      We believe in using good materials, sustainable practices, and thoughtful
+      craftsmanship. Every piece we create is made with attention to detail and
+      a passion for fashion.
+    </p>
+
+    <p>
+      Our team brings together creativity, experience, and fresh ideas to
+      deliver the best for our customers. We’re committed to offering a smooth
+      shopping experience and products that inspire your personal style.
+    </p>
+
+    <p>
+      Thank you for being a part of our journey. Together, we continue to shape
+      a better and more stylish future.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- FOOTER SECTION -->
+ <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h2>LUXE.</h2>
+      <p>
+        Premium fashion for the modern connoisseur.
+        Elevate your style with our curated collections.
+      </p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Shop -->
+    <div class="footer-col">
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div class="footer-col">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Find a Store</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Corporate Responsibility</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+</body>
+</html>
